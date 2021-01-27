@@ -7,7 +7,7 @@ It was bootstrapped with [Create React App](https://github.com/facebook/create-r
 
 ```
 git clone https://github.com/celiagomezdev/shop-app.git
-cd shop app
+cd shop-app
 yarn
 yarn start
 ```
