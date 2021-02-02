@@ -11,13 +11,13 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <ProductCardContainer className="product-card">
-      <ImgContainer className="image-container">
+    <ProductCardContainer id="product-card">
+      <ImgContainer id="image-container">
         <Img src={product.image} alt={`${product.title}`} />
       </ImgContainer>
-      <CopyContainer className="copy-container">
-        <Title className="title">{product.title}</Title>
-        <Price className="price">
+      <CopyContainer id="copy-container">
+        <Title id="card-title">{product.title}</Title>
+        <Price id="card-price">
           {product.price ? `${product.price}€` : ''}
         </Price>
       </CopyContainer>

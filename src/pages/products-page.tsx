@@ -19,6 +19,10 @@ export default function ProductsPage() {
   )
 }
 
+/**
+ * STYLED COMPONENTS OF THIS FILE:
+ */
+
 const Header = styled('header')({
   fontSize: '2rem',
   display: 'flex',
