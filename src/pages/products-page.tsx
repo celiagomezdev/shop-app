@@ -1,20 +1,39 @@
 import React, { Fragment } from 'react'
+import { useQuery, gql } from '@apollo/client'
 import styled from '@emotion/styled'
-import ProductCard from '../components/product-card'
+import ProductList from '../components/product-list'
+import { Product } from '../__generated__/types'
 
-const dummyProduct = {
-  title: 'Unbranded Rubber Hat',
-  image: 'https://picsum.photos/id/1/400/300',
-  price: '400,00',
+const GET_PRODUCTS_QUERY = gql`
+  query GetProducts {
+    products {
+      id
+      title
+      image
+      price
+    }
+  }
+`
+
+interface ProductListProps {
+  products: [Product]
 }
 
 export default function ProductsPage() {
+  const { loading, error, data } = useQuery<ProductListProps>(
+    GET_PRODUCTS_QUERY
+  )
+  if (loading) return <span> Loading </span>
+  if (error) return <p>{error.toString()}</p>
+  if (!data?.products || !data?.products.length)
+    return <p> This request returned no data. Please try again.</p>
+
   return (
     <Fragment>
       <Header>
         <h1>products catalog</h1>
       </Header>
-      <ProductCard product={dummyProduct} />
+      <ProductList products={data?.products} />
     </Fragment>
   )
 }
