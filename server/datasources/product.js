@@ -7,8 +7,7 @@ class ProductAPI extends RESTDataSource {
   }
 
   async getProducts() {
-    const response = await this.get(`products`)
-    return response.items
+    return this.get(`products`)
   }
 }
 

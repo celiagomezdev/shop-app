@@ -1,19 +1,16 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Product } from '../__generated__/types'
 
 interface ProductCardProps {
-  product: {
-    title: string
-    image: string
-    price: string
-  }
+  product: Product
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <ProductCardContainer id="product-card">
       <ImgContainer id="image-container">
-        <Img src={product.image} alt={`${product.title}`} />
+        <Img src={product.image!} alt={`${product.title}`} />
       </ImgContainer>
       <CopyContainer id="copy-container">
         <Title id="card-title">{product.title}</Title>
