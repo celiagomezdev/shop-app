@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import styled from '@emotion/styled'
 import { Product } from '../__generated__/types'
 
@@ -7,8 +8,15 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const [idToRedirect, setIdToRedirect] = useState<string | null>(null)
+
+  if (idToRedirect) return <Redirect push to={`/products/${idToRedirect}`} />
+
   return (
-    <ProductCardContainer id="product-card">
+    <ProductCardContainer
+      id="product-card"
+      onClick={() => setIdToRedirect(product.id)}
+    >
       <ImgContainer id="image-container">
         <Img src={product.image!} alt={`${product.title}`} />
       </ImgContainer>
