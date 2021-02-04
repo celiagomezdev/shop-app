@@ -6,9 +6,7 @@ class ProductAPI extends RESTDataSource {
     this.baseURL = 'https://5fd0e692b485ea0016eed9f4.mockapi.io/akira/api/v1/'
   }
 
-  async getProducts() {
-    return this.get(`products`)
-  }
+  getProducts = async () => this.get(`products`)
 }
 
 module.exports = ProductAPI
