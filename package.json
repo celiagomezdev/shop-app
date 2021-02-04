@@ -34,7 +34,9 @@
     "start:server": "node server",
     "watch:server": "nodemon --watch server server",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test:client": "react-scripts test --watchAll=false",
+    "test:server": "jest server",
+    "test": "npm-run-all --parallel test:client test:server",
     "eject": "react-scripts eject",
     "generate": "graphql-codegen"
   },
