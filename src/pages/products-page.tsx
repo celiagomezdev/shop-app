@@ -25,15 +25,13 @@ export default function ProductsPage() {
   )
   if (loading) return <span> Loading </span>
   if (error) return <p>{error.toString()}</p>
-  if (!data?.products || !data?.products.length)
-    return <p> This request returned no data. Please try again.</p>
 
   return (
     <Fragment>
       <Header>
         <h1>products catalog</h1>
       </Header>
-      <ProductList products={data?.products} />
+      {data && <ProductList products={data.products} />}
     </Fragment>
   )
 }
