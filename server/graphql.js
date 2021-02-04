@@ -8,17 +8,18 @@ const dataSources = () => ({
 const typeDefs = gql`
   type Product {
     id: ID!
-    title: String
-    description: String
-    image: String
-    material: String
-    color: String
-    release_date: String
-    price: String
+    title: String!
+    description: String!
+    image: String!
+    material: String!
+    color: String!
+    release_date: String!
+    price: String!
   }
 
   type Query {
-    products: [Product]
+    products: [Product!]
+    product(productId: ID!): Product!
   }
 `
 

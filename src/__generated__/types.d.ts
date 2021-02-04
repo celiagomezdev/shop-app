@@ -14,16 +14,22 @@ export type Scalars = {
 export type Product = {
   __typename?: 'Product';
   id: Scalars['ID'];
-  title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  image?: Maybe<Scalars['String']>;
-  material?: Maybe<Scalars['String']>;
-  color?: Maybe<Scalars['String']>;
-  release_date?: Maybe<Scalars['String']>;
-  price?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
+  description: Scalars['String'];
+  image: Scalars['String'];
+  material: Scalars['String'];
+  color: Scalars['String'];
+  release_date: Scalars['String'];
+  price: Scalars['String'];
 };
 
 export type Query = {
   __typename?: 'Query';
-  products?: Maybe<Array<Maybe<Product>>>;
+  products: Array<Product>;
+  product: Product;
+};
+
+
+export type QueryProductArgs = {
+  productId: Scalars['ID'];
 };
