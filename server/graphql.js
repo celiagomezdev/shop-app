@@ -26,6 +26,8 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     products: (_, __, { dataSources }) => dataSources.productAPI.getProducts(),
+    product: (_, { productId }, { dataSources }) =>
+      dataSources.productAPI.getProductById(productId),
   },
 }
 

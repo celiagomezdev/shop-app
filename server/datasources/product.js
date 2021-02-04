@@ -7,6 +7,8 @@ class ProductAPI extends RESTDataSource {
   }
 
   getProducts = async () => this.get(`products`)
+
+  getProductById = async productId => this.get(`products/${productId}`)
 }
 
 module.exports = ProductAPI
