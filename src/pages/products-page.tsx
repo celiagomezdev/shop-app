@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { useQuery, gql } from '@apollo/client'
-import styled from '@emotion/styled'
 import ProductList from '../components/product-list'
 import { Product } from '../__generated__/types'
 
@@ -26,26 +25,5 @@ export default function ProductsPage() {
   if (loading) return <span> Loading </span>
   if (error) return <p>{error.toString()}</p>
 
-  return (
-    <Fragment>
-      <Header>
-        <h1>products catalog</h1>
-      </Header>
-      {data && <ProductList products={data.products} />}
-    </Fragment>
-  )
+  return <Fragment>{data && <ProductList products={data.products} />}</Fragment>
 }
-
-/**
- * STYLED COMPONENTS OF THIS FILE:
- */
-
-const Header = styled('header')({
-  fontSize: '2rem',
-  display: 'flex',
-  alignItems: 'center',
-  height: '150px',
-  justifyContent: 'center',
-  color: '#F72585',
-  backgroundColor: '#CEE0DC',
-})

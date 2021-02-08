@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import './app.css'
+import Header from './components/header'
 import ProductsPage from './pages/products-page'
 import ProductDetailPage from './pages/product-detail-page'
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="shop-app">
       <ApolloProvider client={client}>
+        <Header />
         <Router>
           <Switch>
             <Route path="/" exact>
