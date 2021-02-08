@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
+import ShoppingCart from './shopping-cart'
 
 const Header = () => {
   return (
     <HeaderStyled>
       <h1>products catalog</h1>
+      <ShoppingCart />
     </HeaderStyled>
   )
 }
