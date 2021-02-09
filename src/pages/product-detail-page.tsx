@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import { Product } from '../__generated__/types'
 import { convertDate, capitalizeFirstChar } from '../utils'
+import Button from '../components/button'
 
 interface ProductProps {
   product: Product
@@ -77,6 +78,10 @@ export default function ProductDetailPage() {
             {listItem('Release Date', convertDate(data.product.release_date))}
             {listItem('Price', `${data.product.price}€`)}
           </DetailsContainer>
+          <Button
+            text="Add to cart"
+            onClick={() => console.log("I've been clicked")}
+          ></Button>
         </ProductContainer>
       )}
     </Fragment>
