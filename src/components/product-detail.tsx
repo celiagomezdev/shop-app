@@ -1,14 +1,22 @@
 import React from 'react'
+import { connect, ConnectedProps } from 'react-redux'
 import styled from '@emotion/styled'
 import { Product } from '../__generated__/types'
 import { convertDate, capitalizeFirstChar } from '../utils'
+import { addItemToCart } from '../store/actions'
 import Button from './button'
 
 interface ProductProps {
   product: Product
 }
 
-const ProductDetail: React.FC<ProductProps> = ({ product }) => {
+const connector = connect(null, { addItemToCart })
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsFromRedux & ProductProps
+
+const ProductDetail: React.FC<Props> = ({ product, addItemToCart }) => {
   const listItem = (label: string, data: string) => {
     return (
       <ListItem>
@@ -17,6 +25,8 @@ const ProductDetail: React.FC<ProductProps> = ({ product }) => {
       </ListItem>
     )
   }
+
+  const handleAddItemToCart = (item: Product) => addItemToCart(item)
 
   return (
     <ProductDetailContainer id="product-detail-container">
@@ -36,7 +46,7 @@ const ProductDetail: React.FC<ProductProps> = ({ product }) => {
       </DetailsContainer>
       <Button
         text="Add to cart"
-        onClick={() => console.log("I've been clicked")}
+        onClick={() => handleAddItemToCart(product)}
       ></Button>
     </ProductDetailContainer>
   )
@@ -106,4 +116,4 @@ const Data = styled('p')({
   flexGrow: 1,
 })
 
-export default ProductDetail
+export default connector(ProductDetail)
