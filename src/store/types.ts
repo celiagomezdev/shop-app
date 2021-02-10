@@ -1,19 +1,14 @@
-export interface Item {
-  title: string
-  description: string
-  image: string
-  price: string
-}
+import { Product } from '../__generated__/types'
 
 export interface InitialState {
-  items: Item[]
+  items: Product[]
 }
 
 export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART'
 
 export interface AddItemToCartAction {
   type: typeof ADD_ITEM_TO_CART
-  payload: Item
+  payload: Product
 }
 
 export type CartActionTypes = AddItemToCartAction
